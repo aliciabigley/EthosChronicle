@@ -1,0 +1,32 @@
+﻿@*@{
+    if (this.User.IsInRole("CanManageUsers"))
+    {
+        Layout = "~/Views/Shared/CanManageUsers.cshtml";
+    }
+    else if (Request.IsAuthenticated)
+    {
+        Layout = "~/Views/Shared/Users.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+}*@
+
+@*@if (User.IsInRole("CanManageUsers"))
+{
+    @Html.Partial("_CanManageUsersPartial")
+}
+else if (User.IsInRole("User"))
+{
+    @Html.Partial("_UserPartial")
+}
+else
+{
+    @Html.Partial("_LoginPartial")
+}*@
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
