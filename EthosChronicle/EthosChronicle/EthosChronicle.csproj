@@ -209,6 +209,18 @@
     <Compile Include="Migrations\201702131749424_SeedUsers.Designer.cs">
       <DependentUpon>201702131749424_SeedUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702151818373_AddedFirstLastNameToAspNetUserTable.cs" />
+    <Compile Include="Migrations\201702151818373_AddedFirstLastNameToAspNetUserTable.Designer.cs">
+      <DependentUpon>201702151818373_AddedFirstLastNameToAspNetUserTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702152010407_firstLastName.cs" />
+    <Compile Include="Migrations\201702152010407_firstLastName.Designer.cs">
+      <DependentUpon>201702152010407_firstLastName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702152119107_AddFirNameLasNameAdd.cs" />
+    <Compile Include="Migrations\201702152119107_AddFirNameLasNameAdd.Designer.cs">
+      <DependentUpon>201702152119107_AddFirNameLasNameAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -219,6 +231,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\dropzone.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -229,6 +242,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Content\basic.css" />
+    <Content Include="Scripts\dropzone.js" />
+    <Content Include="Scripts\dropzone\basic.min.css" />
+    <Content Include="Scripts\dropzone\dropzone-amd-module.js" />
+    <Content Include="Scripts\dropzone\dropzone-amd-module.min.js" />
+    <Content Include="Scripts\dropzone\dropzone.css" />
+    <Content Include="Scripts\dropzone\dropzone.js" />
+    <Content Include="Scripts\dropzone\dropzone.min.css" />
+    <Content Include="Scripts\dropzone.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -281,6 +303,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="images\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -296,6 +320,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702131749424_SeedUsers.resx">
       <DependentUpon>201702131749424_SeedUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702151818373_AddedFirstLastNameToAspNetUserTable.resx">
+      <DependentUpon>201702151818373_AddedFirstLastNameToAspNetUserTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702152010407_firstLastName.resx">
+      <DependentUpon>201702152010407_firstLastName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702152119107_AddFirNameLasNameAdd.resx">
+      <DependentUpon>201702152119107_AddFirNameLasNameAdd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
