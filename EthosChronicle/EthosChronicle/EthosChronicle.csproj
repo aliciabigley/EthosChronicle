@@ -198,6 +198,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -221,10 +222,15 @@
     <Compile Include="Migrations\201702152119107_AddFirNameLasNameAdd.Designer.cs">
       <DependentUpon>201702152119107_AddFirNameLasNameAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702161418109_VideographerInfoModel.cs" />
+    <Compile Include="Migrations\201702161418109_VideographerInfoModel.Designer.cs">
+      <DependentUpon>201702161418109_VideographerInfoModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\VideographerInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -300,11 +306,14 @@
     <Content Include="Views\Shared\_CanManageUsersPartial.cshtml" />
     <Content Include="Views\Shared\CanManageUsers.cshtml" />
     <Content Include="Views\Shared\Users.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\Videographer.cshtml" />
+    <Content Include="Views\User\DoItYourself.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\images\" />
     <Folder Include="images\" />
-    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -329,6 +338,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702152119107_AddFirNameLasNameAdd.resx">
       <DependentUpon>201702152119107_AddFirNameLasNameAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702161418109_VideographerInfoModel.resx">
+      <DependentUpon>201702161418109_VideographerInfoModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

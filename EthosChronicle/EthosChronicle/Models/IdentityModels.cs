@@ -37,6 +37,7 @@ namespace EthosChronicle.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<VideographerInfo> VideographerInfomation { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
