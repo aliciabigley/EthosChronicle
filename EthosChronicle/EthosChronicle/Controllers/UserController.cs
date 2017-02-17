@@ -19,6 +19,11 @@ namespace EthosChronicle.Controllers
             var videographerInfo = new VideographerInfo() { };
             return View(videographerInfo);
         }
+        public ActionResult PricingPackages()
+        {
+            var pricing = new Pricing() { };
+            return View(pricing);
+        }
         public ActionResult DoItYourself()
         {
             return View();
