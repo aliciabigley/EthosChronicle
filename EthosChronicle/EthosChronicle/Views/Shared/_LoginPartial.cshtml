@@ -9,10 +9,12 @@
         @if (this.User.IsInRole("CanManageUsers"))
         {
             <li>@Html.ActionLink("Admin Dashboard", "Index", "Admin")</li>
+
         }
         else
         {
             <li>@Html.ActionLink("Dashboard", "Index", "User")</li>
+           
         }
         <li>
             @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })

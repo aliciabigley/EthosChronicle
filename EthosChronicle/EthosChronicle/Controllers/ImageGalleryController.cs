@@ -25,11 +25,24 @@ namespace EthosChronicle.Controllers
         [HttpPost]
         public ActionResult Upload(ImageGallery IG)
         {
-            if (IG.File.ContentLength > (2 * 1024 * 1024))
-            {
-                ModelState.AddModelError("CustomError", "File size must be less than 2 MB");
-                return View();
-            }
+            //try
+            //{
+            //    if (IG.File.ContentLength > (2 * 1024 * 1024))
+            //    {
+            //        ModelState.AddModelError("CustomError", "File size must be less than 2 MB");
+            //        return View();
+            //    }
+            //}
+            //catch (Exception)
+            //{
+            //    Console.WriteLine("Try uploading a smaller file");
+            //    throw;
+            //}
+            //if (IG.File.ContentLength > (2 * 1024 * 1024))
+            //{
+            //    ModelState.AddModelError("CustomError", "File size must be less than 2 MB");
+            //    return View();
+            //}
             //if (!(IG.File.ContentType == "image/jpeg" || IG.File.ContentType == "image/gif"))
             //{
             //    ModelState.AddModelError("CustomError", "File type allowed : jpeg and gif");
