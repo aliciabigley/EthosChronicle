@@ -23,14 +23,17 @@ namespace EthosChronicle
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
-            bundles.Add(new ScriptBundle("~/bundles/dropzone").Include(
-                       "~/Scripts/dropzone.js"));
+            //bundles.Add(new StyleBundle("~/Content/css").Include(
+            //           "~/Content/spacelab.css",
+            //          //"~/Content/bootstrap.css",
+            //          "~/Content/site.css"));
+
+            //bundles.Add(new ScriptBundle("~/bundles/dropzone").Include(
+            //           "~/Scripts/dropzone.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                       "~/Content/bootstrap.css",
+                       "~/Content/flaty.css",
+                       //"~/Content/bootstrap.css",
                        "~/Content/site.css",
                        "~/Content/basic.css",
                        "~/Content/dropzone.css"));

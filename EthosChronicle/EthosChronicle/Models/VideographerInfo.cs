@@ -11,26 +11,28 @@ namespace EthosChronicle.Models
         public int Id { get; set; }
 
         [Required]
-        [Display(Name ="Name of the interviewee")]
+        [Display(Name ="Name of Interviewee")]
         public string IntervieweeName { get; set; }
 
         [Required]
-        [Display(Name = "Relationship")]
+        [Display(Name = "Relationship to Interviewee")]
         public string Relationship { get; set; }
 
         [Required]
-        [Display(Name = "Age")]
+        [Display(Name = "Age of Interviewee")]
         public string AgeRange { get; set; }
 
-        [Display(Name = "Location")]
+        [Display(Name = "Location of Interview")]
         public string Location { get; set; }
 
-        [Display(Name = "Any specific stories")]
+        [Display(Name = "One story you would like recorded")]
         public string Stories { get; set; }
 
-        [Display(Name = "Interviewer")]
+        [Display(Name = "Would you like to be the interviewer")]
         public string Interviewer { get; set; }
 
+        [Display(Name = "Date of Interview")]
+        public DateTime date { get; set; }
 
     }
 }

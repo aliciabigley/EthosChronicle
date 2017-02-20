@@ -28,5 +28,9 @@ namespace EthosChronicle.Controllers
         {
             return View();
         }
+        public ActionResult NewInterview()
+        {
+            return View();
+        }
     }
 }

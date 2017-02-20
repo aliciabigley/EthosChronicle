@@ -16,8 +16,11 @@
             <tr>
                 @while (j < i + 4 && j < Model.Count())
                 {
-                    <td>
-                        <img src="data:image/png;base64,@Convert.ToBase64String(Model[j].ImageData,0,Model[j].ImageData.Length)" width="100" />
+                    <td id="object[j]">
+                        <img src="data:image/png;base64, @Convert.ToBase64String(Model[j].ImageData,0,Model[j].ImageData.Length)" width="100" />
+                        @*<a href="path_to_file" download="proposed_file_name">Download</a>*@
+                        @*<a @Html.ActionLink("download file", "Download")></a>*@
+                        @*<%= Html.ActionLink("download file", "download") %>*@
                     </td>
                     j++;
                 }

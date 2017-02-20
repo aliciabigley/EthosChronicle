@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 50px;
+    /*padding-top: 50px;*/
     padding-bottom: 20px;
 }
 
@@ -22,3 +22,19 @@ select,
 textarea {
     max-width: 280px;
 }
+.paypal_btn{
+display: inline-block;
+font-family: inherit;
+font-size: 14px;
+font-weight: bold;
+color: #fff;
+text-align: center;
+padding: 10px 14px;
+margin: 0;
+background: #ff6600;
+border: 0;
+cursor: pointer;
+outline: none;
+border-radius: 10px;
+}
+.paypal_btn:hover{ background: #e05c04; }
