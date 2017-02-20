@@ -9,6 +9,7 @@ namespace EthosChronicle.Controllers
 {
     public class UserController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
         // GET: User
         public ActionResult Index()
         {
@@ -25,10 +26,6 @@ namespace EthosChronicle.Controllers
             return View(pricing);
         }
         public ActionResult DoItYourself()
-        {
-            return View();
-        }
-        public ActionResult NewInterview()
         {
             return View();
         }

@@ -1,0 +1,75 @@
+﻿@model EthosChronicle.Models.VideographerInfo
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>VideographerInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IntervieweeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IntervieweeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Relationship)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Relationship)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AgeRange)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgeRange)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stories)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stories)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Interviewer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Interviewer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

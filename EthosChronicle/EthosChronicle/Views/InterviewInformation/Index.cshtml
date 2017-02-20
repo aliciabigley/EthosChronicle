@@ -1,0 +1,71 @@
+﻿@model IEnumerable<EthosChronicle.Models.VideographerInfo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Interviews</h2>
+
+<p>
+    @Html.ActionLink("Plan another interview", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IntervieweeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Relationship)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AgeRange)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stories)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Interviewer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IntervieweeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Relationship)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AgeRange)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stories)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Interviewer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })  |
+            @*@Html.ActionLink("Pay Now", "Users", "PricingPackages", new { id = item.Id })*@
+        </td>
+    </tr>
+}
+
+</table>
