@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -16,9 +17,20 @@ namespace EthosChronicle.Controllers
             List<ImageGallery> all = new List<ImageGallery>();
             UploadImagesEntities dc = new UploadImagesEntities();
 
-            using (dc)
+                using (dc)
             {
-                all = dc.ImageGalleries.ToList();
+                if (dc.ImageGalleries != null)
+                {
+                    var id = User.Identity.GetUserId();
+                    foreach(var image in dc.ImageGalleries)
+                    {
+                        if(image.Id == id && image.Id != null)
+                        {
+                            all = dc.ImageGalleries.ToList();
+                        }
+                    }
+                }
+                //all = dc.ImageGalleries.ToList();
             }
             return View(all);
         }
@@ -61,6 +73,7 @@ namespace EthosChronicle.Controllers
             IG.ImageData = data;
             using(UploadImagesEntities dc = new UploadImagesEntities())
             {
+                IG.Id = User.Identity.GetUserId(); //This assigns the userid as the Ig.Id
                 dc.ImageGalleries.Add(IG);
                 dc.SaveChanges();
             }

@@ -29,5 +29,10 @@ namespace EthosChronicle.Controllers
         {
             return View();
         }
+
+        public ActionResult TipsAndTricks()
+        {
+            return View();
+        }
     }
 }
