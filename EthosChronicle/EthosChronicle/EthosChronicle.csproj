@@ -437,6 +437,7 @@
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\User\TipsAndTricks.cshtml" />
+    <Content Include="Views\User\Questions.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
