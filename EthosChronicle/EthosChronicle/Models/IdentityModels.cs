@@ -9,22 +9,6 @@ namespace EthosChronicle.Models
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
-        public string FirstName { get; set; }
-
-        public string LastName { get; set; }
-
-
-        public string Address { get; set; }
-
-
-        public string City { get; set; }
-
-
-        public string State { get; set; }
-
-
-        public int Zip { get; set; }
-
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -39,6 +23,7 @@ namespace EthosChronicle.Models
     {
         public DbSet<VideographerInfo> VideographerInfomation { get; set; }
         public DbSet<Pricing> Pricing { get; set; }
+        public DbSet<Customer> Customer { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

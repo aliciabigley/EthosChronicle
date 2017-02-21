@@ -211,8 +211,10 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\Api\UsersController.cs" />
     <Compile Include="Controllers\Api\VideosController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageGalleryController.cs" />
     <Compile Include="Controllers\InterviewInformationController.cs" />
@@ -272,6 +274,30 @@
     <Compile Include="Migrations\201702201556018_addDateToVidInfo.Designer.cs">
       <DependentUpon>201702201556018_addDateToVidInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702210038213_removeUserInfoFromASPnetUsers.cs" />
+    <Compile Include="Migrations\201702210038213_removeUserInfoFromASPnetUsers.Designer.cs">
+      <DependentUpon>201702210038213_removeUserInfoFromASPnetUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702210045126_addCustomerTable.cs" />
+    <Compile Include="Migrations\201702210045126_addCustomerTable.Designer.cs">
+      <DependentUpon>201702210045126_addCustomerTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702210054129_AddCustomerInfomationTable.cs" />
+    <Compile Include="Migrations\201702210054129_AddCustomerInfomationTable.Designer.cs">
+      <DependentUpon>201702210054129_AddCustomerInfomationTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702210059438_update.cs" />
+    <Compile Include="Migrations\201702210059438_update.Designer.cs">
+      <DependentUpon>201702210059438_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702210122068_removeInformationFromASPNetUser.cs" />
+    <Compile Include="Migrations\201702210122068_removeInformationFromASPNetUser.Designer.cs">
+      <DependentUpon>201702210122068_removeInformationFromASPNetUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702210131244_AddEmailToCustomer.cs" />
+    <Compile Include="Migrations\201702210131244_AddEmailToCustomer.Designer.cs">
+      <DependentUpon>201702210131244_AddEmailToCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -289,6 +315,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Pricing.cs" />
@@ -402,6 +429,12 @@
     <Content Include="Views\InterviewInformation\Details.cshtml" />
     <Content Include="Views\InterviewInformation\Edit.cshtml" />
     <Content Include="Views\InterviewInformation\Index.cshtml" />
+    <Content Include="Views\Customers\Create.cshtml" />
+    <Content Include="Views\Customers\Delete.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Customers\Edit.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -451,6 +484,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702201556018_addDateToVidInfo.resx">
       <DependentUpon>201702201556018_addDateToVidInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702210038213_removeUserInfoFromASPnetUsers.resx">
+      <DependentUpon>201702210038213_removeUserInfoFromASPnetUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702210045126_addCustomerTable.resx">
+      <DependentUpon>201702210045126_addCustomerTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702210054129_AddCustomerInfomationTable.resx">
+      <DependentUpon>201702210054129_AddCustomerInfomationTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702210059438_update.resx">
+      <DependentUpon>201702210059438_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702210122068_removeInformationFromASPNetUser.resx">
+      <DependentUpon>201702210122068_removeInformationFromASPNetUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702210131244_AddEmailToCustomer.resx">
+      <DependentUpon>201702210131244_AddEmailToCustomer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
