@@ -15,16 +15,16 @@ namespace EthosChronicle.Controllers
         public  ActionResult Gallery()
         {
             List<ImageGallery> all = new List<ImageGallery>();
-            UploadImagesEntities dc = new UploadImagesEntities();
+            //UploadImagesEntities dc = new UploadImagesEntities();
 
-                using (dc)
+                using (UploadImagesEntities dc = new UploadImagesEntities())
             {
                 if (dc.ImageGalleries != null)
                 {
-                    var id = User.Identity.GetUserId();
+                    var userId = User.Identity.GetUserId();
                     foreach(var image in dc.ImageGalleries)
                     {
-                        if(image.Id == id && image.Id != null)
+                        if(image.Id == userId && image.Id != null)
                         {
                             all = dc.ImageGalleries.ToList();
                         }

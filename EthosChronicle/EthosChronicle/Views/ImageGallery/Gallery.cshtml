@@ -3,6 +3,15 @@
 @{
     ViewBag.Title = "Gallery";
 }
+@*<style>
+    imageGallery {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+
+    }
+</style>*@
 <h2>Gallery</h2>
 <p>
     @Html.ActionLink("Upload New", "Upload")
@@ -13,7 +22,7 @@
         for (int i = 0; i < Model.Count(); i += 4)
         {
             j = i;
-            <tr>
+            <tr class="imageGallery"  style="border-spacing: 10px;">
                 @while (j < i + 4 && j < Model.Count())
                 {
                     <td id="object[j]">
