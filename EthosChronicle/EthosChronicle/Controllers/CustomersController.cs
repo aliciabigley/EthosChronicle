@@ -14,6 +14,7 @@ namespace EthosChronicle.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+
         // GET: Customers
         public ActionResult Index()
         {

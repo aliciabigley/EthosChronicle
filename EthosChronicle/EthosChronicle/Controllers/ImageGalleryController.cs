@@ -7,6 +7,7 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace EthosChronicle.Controllers
 {
     public class ImageGalleryController : Controller
@@ -14,11 +15,13 @@ namespace EthosChronicle.Controllers
         
         public  ActionResult Gallery()
         {
+            List<ImageGallery> userImage = new List<ImageGallery>();
+            userImage.Clear();
             List<ImageGallery> all = new List<ImageGallery>();
             //UploadImagesEntities dc = new UploadImagesEntities();
-
-                using (UploadImagesEntities dc = new UploadImagesEntities())
+            using (UploadImagesEntities dc = new UploadImagesEntities())
             {
+                
                 if (dc.ImageGalleries != null)
                 {
                     var userId = User.Identity.GetUserId();
@@ -26,13 +29,14 @@ namespace EthosChronicle.Controllers
                     {
                         if(image.Id == userId && image.Id != null)
                         {
-                            all = dc.ImageGalleries.ToList();
+                            userImage.Add(image);
                         }
                     }
+                   
                 }
                 //all = dc.ImageGalleries.ToList();
             }
-            return View(all);
+            return View(userImage);
         }
         public ActionResult Upload()
         {
@@ -59,7 +63,7 @@ namespace EthosChronicle.Controllers
             //    ModelState.AddModelError("CustomError", "File size must be less than 2 MB");
             //    return View();
             //}
-            //if (!(IG.File.ContentType == "image/jpeg" || IG.File.ContentType == "image/gif"))
+            //if (!(IG.File.ContentType == "image/jpeg" || IG.File.ContentType == "image/gif" || IG.File.ContentType == "image/png" || IG.File.ContentType == "image/jpg" || IG.File.ContentType == "video/mp4"))
             //{
             //    ModelState.AddModelError("CustomError", "File type allowed : jpeg and gif");
             //    return View();
@@ -80,46 +84,13 @@ namespace EthosChronicle.Controllers
 
             return RedirectToAction("gallery");
         }
-
-        //public ImageGallery Base64ToImage(string base64String)
-        //{
-        //    //// Convert Base64 String to byte[]
-        //    byte[] imageBytes = Convert.FromBase64String(base64String);
-        //    MemoryStream ms = new MemoryStream(imageBytes, 0,
-        //      imageBytes.Length);
-
-        //    // Convert byte[] to Image
-        //    ms.Write(imageBytes, 0, imageBytes.Length);
-        //    Image image = Image.FromStream(ms, true);
-        //    return image;
-        //}
-        //public ActionResult Download(ImageGallery ig)
-        //{
-        //  //byte[] image = @Convert.FromBase64String(Encoding.ASCII.GetString(ig.ImageData));
-        //  //  return RedirectToAction("gallery");
-        //}
-            //    int j = 0;
-            //    int i = 0;
-            //        while(j < i + 4 && j < ig.ImageData.Count())
-            //            {
-
-
-            //                  Convert.ToBase64StringImageData,0,Model[j].ImageData.Length)
-
-            //            j++;
-            //        }
-            //        ////List<ImageGallery> all = new List<ImageGallery>();
-            //        ////for(int i = 0; i< da)
-            //        //byte[] contents = IG.ImageData;
-            //        //string fileName = IG.FileName;
-            //        //return File(contents, fileName);
-            //        ////return new FileContentResult(contents,fileName);
-            //    }
-
-            // GET: ImageGallery
-            //public ActionResult Index()
-            //{
-            //    return View();
-            //}
+        public FileResult Download(int ImageId)
+        {
+            UploadImagesEntities dc = new UploadImagesEntities();
+            var file = dc.ImageGalleries.Where(x => x.ImageId == ImageId).First();
+            return new FileContentResult(file.ImageData, "image/ jpeg") { FileDownloadName = file.FileName };
         }
+
+
+    }
 }

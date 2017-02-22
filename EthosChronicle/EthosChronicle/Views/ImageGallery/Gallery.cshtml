@@ -27,14 +27,17 @@
                 {
                     <td id="object[j]">
                         <img src="data:image/png;base64, @Convert.ToBase64String(Model[j].ImageData,0,Model[j].ImageData.Length)" width="100" />
+                        @Html.ActionLink("Download", "Download", new { ImageId = @Model[j].ImageId })
                         @*<a href="path_to_file" download="proposed_file_name">Download</a>*@
                         @*<a @Html.ActionLink("download file", "Download")></a>*@
                         @*<%= Html.ActionLink("download file", "download") %>*@
+                    </td>
+                    <td>
+                     @*@Html.ActionLink("Download", "Download", new { ImageId = @Model[i].ImageId })*@
                     </td>
                     j++;
                 }
             </tr>
         }
     }
-</table>
-            
+</table>            
