@@ -90,7 +90,48 @@ namespace EthosChronicle.Controllers
             var file = dc.ImageGalleries.Where(x => x.ImageId == ImageId).First();
             return new FileContentResult(file.ImageData, "image/ jpeg") { FileDownloadName = file.FileName };
         }
+        public ActionResult GetThumbnail(int ImageId)
+        {
+            UploadImagesEntities dc = new UploadImagesEntities();
+
+            using (dc = new  UploadImagesEntities())
+            {
+                // fetch video from database
+                ImageGallery vs = new ImageGallery();
+                vs = dc.ImageGallery.Where(m => m.SrNo == ImageId).FirstOrDefault();
+
+                Image thumbnail = null;
+
+                var ffMpeg = new NReco.VideoConverter.FFMpegConverter();
+                float? frameTime = 07;
+
+                var path = Server.MapPath("~/Upload/TempUpload/" + vs.FileName + "." + vs.FileType);
+
+                //thumnail path
+                string imageFilePath = Server.MapPath("~/Upload/TempUpload/" + vs.FileName + ".jpg");
+
+                // Get thumnail using NReco.VideoConverter
+                ffMpeg.GetVideoThumbnail(path, imageFilePath, frameTime);
+
+                //Open image and read it to thumnail
+                using (FileStream imageStream = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read))
+                {
+                    thumbnail = Image.FromFile(imageFilePath);
+                }
+
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    // Save thumbnail image
+                    thumbnail.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+                    // Add it to Response
+                    HttpContext.Response.ContentType = "image/bmp";
+                    HttpContext.Response.BinaryWrite(ms.ToArray());
+                    HttpContext.Response.End();
+                }
+
+            }
 
 
-    }
+        }
 }
