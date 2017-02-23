@@ -6,14 +6,16 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
-
+using NReco.VideoConverter;
+using System.Drawing;
+using EthosChronicle.Models;
 
 namespace EthosChronicle.Controllers
 {
     public class ImageGalleryController : Controller
     {
-        
-        public  ActionResult Gallery()
+
+        public ActionResult Gallery()
         {
             List<ImageGallery> userImage = new List<ImageGallery>();
             userImage.Clear();
@@ -21,18 +23,18 @@ namespace EthosChronicle.Controllers
             //UploadImagesEntities dc = new UploadImagesEntities();
             using (UploadImagesEntities dc = new UploadImagesEntities())
             {
-                
+
                 if (dc.ImageGalleries != null)
                 {
                     var userId = User.Identity.GetUserId();
-                    foreach(var image in dc.ImageGalleries)
+                    foreach (var image in dc.ImageGalleries)
                     {
-                        if(image.Id == userId && image.Id != null)
+                        if (image.Id == userId && image.Id != null)
                         {
                             userImage.Add(image);
                         }
                     }
-                   
+
                 }
                 //all = dc.ImageGalleries.ToList();
             }
@@ -75,7 +77,7 @@ namespace EthosChronicle.Controllers
             byte[] data = new byte[IG.File.ContentLength];
             IG.File.InputStream.Read(data, 0, IG.File.ContentLength);
             IG.ImageData = data;
-            using(UploadImagesEntities dc = new UploadImagesEntities())
+            using (UploadImagesEntities dc = new UploadImagesEntities())
             {
                 IG.Id = User.Identity.GetUserId(); //This assigns the userid as the Ig.Id
                 dc.ImageGalleries.Add(IG);
@@ -94,21 +96,21 @@ namespace EthosChronicle.Controllers
         {
             UploadImagesEntities dc = new UploadImagesEntities();
 
-            using (dc = new  UploadImagesEntities())
+            using (dc = new UploadImagesEntities())
             {
                 // fetch video from database
-                ImageGallery vs = new ImageGallery();
-                vs = dc.ImageGallery.Where(m => m.SrNo == ImageId).FirstOrDefault();
+                ImageGallery ig = new ImageGallery();
+                ig = dc.ImageGalleries.Where(m => m.ImageId == ImageId).FirstOrDefault();
 
                 Image thumbnail = null;
 
-                var ffMpeg = new NReco.VideoConverter.FFMpegConverter();
+                var ffMpeg = new FFMpegConverter();
                 float? frameTime = 07;
 
-                var path = Server.MapPath("~/Upload/TempUpload/" + vs.FileName + "." + vs.FileType);
+                var path = Server.MapPath("~/Upload/TempUpload/" + ig.FileName);
 
                 //thumnail path
-                string imageFilePath = Server.MapPath("~/Upload/TempUpload/" + vs.FileName + ".jpg");
+                string imageFilePath = Server.MapPath("~/Upload/TempUpload/" + ig.FileName + ".jpg");
 
                 // Get thumnail using NReco.VideoConverter
                 ffMpeg.GetVideoThumbnail(path, imageFilePath, frameTime);
@@ -131,7 +133,27 @@ namespace EthosChronicle.Controllers
                 }
 
             }
-
+            return new EmptyResult();
 
         }
+        [HttpGet]
+        public EmptyResult VideoStream(int id = 0)
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+            UploadImagesEntities dc = new UploadImagesEntities();
+
+            using (db = new ApplicationDbContext())
+            {
+                ImageGallery vm = new ImageGallery();
+                vm = dc.ImageGalleries.Where(m => m.ImageId == id).FirstOrDefault();  //fetch video from database of particular id
+
+
+                HttpContext.Response.AddHeader("Content-Disposition", "attachment; filename=" + vm.FileName );  //add header to httpcontext > response.
+                HttpContext.Response.BinaryWrite(vm.ImageData);  //write bytes to httpcontext response
+
+                return new EmptyResult(); ;
+            }
+
+        }
+    }
 }

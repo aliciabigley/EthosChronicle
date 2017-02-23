@@ -40,4 +40,12 @@
             </tr>
         }
     }
-</table>            
+</table>      
+<div class="col-md-12">
+            @foreach (var item in Model)
+                {
+                    <video width="100" height="240" controls poster="@Url.Action("GetThumbnail", "ImageGallery", new { id = @item.ImageId })">
+                        <source src="@Url.Action("VideoStream","ImageGallery", new { id=@item.ImageId})" type="video/mp4">
+                    </video>
+                    }
+    </div>      
