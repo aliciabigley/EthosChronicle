@@ -224,6 +224,7 @@
     <Compile Include="Controllers\InterviewInformationController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\VideoGalleryController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -326,6 +327,24 @@
     <Compile Include="Models\VideographerInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="VideoGallery.cs">
+      <DependentUpon>VideoGalleryTable.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VideoGalleryTable.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VideoGalleryTable.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VideoGalleryTable.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VideoGalleryTable.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VideoGalleryTable.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VideoGalleryTable.edmx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -383,6 +402,16 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="VideoGalleryTable.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VideoGalleryTable.edmx</DependentUpon>
+      <LastGenOutput>VideoGalleryTable.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="VideoGalleryTable.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VideoGalleryTable.edmx</DependentUpon>
+      <LastGenOutput>VideoGalleryTable.cs</LastGenOutput>
+    </Content>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -442,6 +471,13 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\User\TipsAndTricks.cshtml" />
     <Content Include="Views\User\Questions.cshtml" />
+    <EntityDeploy Include="VideoGalleryTable.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>VideoGalleryTable.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="VideoGalleryTable.edmx.diagram">
+      <DependentUpon>VideoGalleryTable.edmx</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

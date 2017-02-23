@@ -3,49 +3,78 @@
 @{
     ViewBag.Title = "Gallery";
 }
-@*<style>
-    imageGallery {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 10px;
-    margin-left: 10px;
+<style>
+    #video {
+        margin-bottom: 100px;
+        margin-right: 100px;
+        margin-left: 100px;
+        border-spacing: 100px;
+    }
 
+    #col-md-4 {
+        margin-bottom: 50px;
+        margin-right: 50px;
+        margin-left: 50px;
+        border-spacing: 50px;
     }
-</style>*@
-<h2>Gallery</h2>
-<p>
-    @Html.ActionLink("Upload New", "Upload")
-</p>
-<table>
-    @{
-        int j = 0;
-        for (int i = 0; i < Model.Count(); i += 4)
-        {
-            j = i;
-            <tr class="imageGallery"  style="border-spacing: 10px;">
-                @while (j < i + 4 && j < Model.Count())
+</style>
+<center><h2>Image and Video Gallery</h2></center>
+<right>
+    <div>
+        <p>
+            @Html.ActionLink("Upload New", "Upload")
+        </p>
+        <br />
+    </div>
+</right>
+<center>
+    <div>
+        @{
+            int j = 0;
+            for (int i = 0; i < Model.Count(); i += 4)
+            {
+                string jpg = "jpg";
+                string png = "png";
+                j = i;
+                <div class="row" id="imageGallery" @*style="border-spacing: 10px;"*@>
+                    @while (j < i + 4 && j < Model.Count())
                 {
-                    <td id="object[j]">
-                        <img src="data:image/png;base64, @Convert.ToBase64String(Model[j].ImageData,0,Model[j].ImageData.Length)" width="100" />
-                        @Html.ActionLink("Download", "Download", new { ImageId = @Model[j].ImageId })
-                        @*<a href="path_to_file" download="proposed_file_name">Download</a>*@
-                        @*<a @Html.ActionLink("download file", "Download")></a>*@
-                        @*<%= Html.ActionLink("download file", "download") %>*@
-                    </td>
-                    <td>
-                     @*@Html.ActionLink("Download", "Download", new { ImageId = @Model[i].ImageId })*@
-                    </td>
-                    j++;
-                }
-            </tr>
-        }
-    }
-</table>      
-<div class="col-md-12">
-            @foreach (var item in Model)
-                {
-                    <video width="100" height="240" controls poster="@Url.Action("GetThumbnail", "ImageGallery", new { id = @item.ImageId })">
-                        <source src="@Url.Action("VideoStream","ImageGallery", new { id=@item.ImageId})" type="video/mp4">
-                    </video>
+                        <center>
+                            <div class="col-md-4" id="object[j]">
+                                @if (Model[j].FileName.Contains(jpg) || Model[j].FileName.Contains(png))
+                                {
+                                    <div class="row"><div class="col-md-12"><img id="image" src="data:image/png;base64, @Convert.ToBase64String(Model[j].ImageData,0,Model[j].ImageData.Length)" width="132" height="200" /></div></div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            @Html.ActionLink("Download", "Download", new { ImageId = @Model[j].ImageId })
+                                        </div>
+                                    </div>
+                                    @*@Html.ActionLink("Download", "Download", "Download", new { ImageId = @Model[j].ImageId }, new { @class = "btn btn-info btn-xs" })*@
+                                }
+
+                                @*<a href="path_to_file" download="proposed_file_name">Download</a>*@
+                                @*<a @Html.ActionLink("download file", "Download")></a>*@
+                                @*<%= Html.ActionLink("download file", "download") %>*@
+                            </div>
+                        </center>
+                        j++;
                     }
-    </div>      
+                </div>
+            }
+        }
+    </div>
+</center>
+<center>
+    <div class="col-md-12">
+        @foreach (var item in Model)
+        {
+            string mp4 = "mp4";
+            if (item.FileName.Contains(mp4))
+            {
+                <video id="video" width="100" height="200" controls poster="@Url.Action("GetThumbnail", "ImageGallery", new { id = @item.ImageId })">
+                    <source src="@Url.Action("VideoStream","ImageGallery", new { id=@item.ImageId})" type="video/mp4">
+                </video>
+            }
+        }
+    </div>
+</center>

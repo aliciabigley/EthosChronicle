@@ -12,22 +12,21 @@ using EthosChronicle.Models;
 
 namespace EthosChronicle.Controllers
 {
-    public class ImageGalleryController : Controller
+    public class VideoGalleryController : Controller
     {
-
         public ActionResult Gallery()
         {
-            List<ImageGallery> userImage = new List<ImageGallery>();
+            List<VideoGallery> userImage = new List<VideoGallery>();
             userImage.Clear();
-            List<ImageGallery> all = new List<ImageGallery>();
+            List<VideoGallery> all = new List<VideoGallery>();
             //UploadImagesEntities dc = new UploadImagesEntities();
-            using (UploadImagesEntities dc = new UploadImagesEntities())
+            using (UploadVideosEntities dc = new UploadVideosEntities())
             {
 
-                if (dc.ImageGalleries != null)
+                if (dc.VideoGalleries != null)
                 {
                     var userId = User.Identity.GetUserId();
-                    foreach (var image in dc.ImageGalleries)
+                    foreach (var image in dc.VideoGalleries)
                     {
                         if (image.Id == userId && image.Id != null)
                         {
@@ -40,12 +39,15 @@ namespace EthosChronicle.Controllers
             }
             return View(userImage);
         }
+
         public ActionResult Upload()
         {
             return View();
         }
+
+
         [HttpPost]
-        public ActionResult Upload(ImageGallery IG)
+        public ActionResult Upload(VideoGallery IG)
         {
             //try
             //{
@@ -72,56 +74,36 @@ namespace EthosChronicle.Controllers
             //}
 
             IG.FileName = IG.File.FileName;
-            IG.ImageSize = IG.File.ContentLength;
+            IG.VideoSize = IG.File.ContentLength;
 
             byte[] data = new byte[IG.File.ContentLength];
             IG.File.InputStream.Read(data, 0, IG.File.ContentLength);
-            IG.ImageData = data;
-            using (UploadImagesEntities dc = new UploadImagesEntities())
+            IG.VideoData = data;
+            using (UploadVideosEntities dc = new UploadVideosEntities())
             {
                 IG.Id = User.Identity.GetUserId(); //This assigns the userid as the Ig.Id
-                dc.ImageGalleries.Add(IG);
+                dc.VideoGalleries.Add(IG);
                 dc.SaveChanges();
             }
 
             return RedirectToAction("gallery");
         }
-        public FileResult Download(int ImageId)
+        public FileResult Download(int VideoId)
         {
-            UploadImagesEntities dc = new UploadImagesEntities();
-            var file = dc.ImageGalleries.Where(x => x.ImageId == ImageId).First();
-            return new FileContentResult(file.ImageData, "image/ jpeg") { FileDownloadName = file.FileName };
+            UploadVideosEntities dc = new UploadVideosEntities();
+            var file = dc.VideoGalleries.Where(x => x.VideoId == VideoId).First();
+            return new FileContentResult(file.VideoData, "image/ jpeg") { FileDownloadName = file.FileName };
         }
 
-        [HttpGet]
-        public EmptyResult VideoStream(int id = 0)
+        public ActionResult GetThumbnail(int VideoId)
         {
-            ApplicationDbContext db = new ApplicationDbContext();
-            UploadImagesEntities dc = new UploadImagesEntities();
+            UploadVideosEntities dc = new UploadVideosEntities();
 
-            using (db = new ApplicationDbContext())
-            {
-                ImageGallery vm = new ImageGallery();
-                vm = dc.ImageGalleries.Where(m => m.ImageId == id).FirstOrDefault();  //fetch video from database of particular id
-
-
-                HttpContext.Response.AddHeader("Content-Disposition", "attachment; filename=" + vm.FileName);  //add header to httpcontext > response.
-                HttpContext.Response.BinaryWrite(vm.ImageData);  //write bytes to httpcontext response
-
-                return new EmptyResult(); ;
-            }
-
-        }
-
-        public ActionResult GetThumbnail(int ImageId)
-        {
-            UploadImagesEntities dc = new UploadImagesEntities();
-
-            using (dc = new UploadImagesEntities())
+            using (dc = new UploadVideosEntities())
             {
                 // fetch video from database
-                ImageGallery ig = new ImageGallery();
-                ig = dc.ImageGalleries.Where(m => m.ImageId == ImageId).FirstOrDefault();
+                VideoGallery ig = new VideoGallery();
+                ig = dc.VideoGalleries.Where(m => m.VideoId == VideoId).FirstOrDefault();
 
                 Image thumbnail = null;
 
@@ -157,6 +139,29 @@ namespace EthosChronicle.Controllers
             return new EmptyResult();
 
         }
-       
+        //[HttpGet]
+        //public EmptyResult VideoStream(int id = 0)
+        //{
+        //    ApplicationDbContext db = new ApplicationDbContext();
+        //    UploadVideosEntities dc = new UploadVideosEntities();
+
+        //    using (db = new ApplicationDbContext())
+        //    {
+        //        ImageGallery vm = new ImageGallery();
+        //        vm = dc.VideoGalleries.Where(m => m.ImageId == id).FirstOrDefault();  //fetch video from database of particular id
+
+
+        //        HttpContext.Response.AddHeader("Content-Disposition", "attachment; filename=" + vm.FileName);  //add header to httpcontext > response.
+        //        HttpContext.Response.BinaryWrite(vm.ImageData);  //write bytes to httpcontext response
+
+        //        return new EmptyResult(); ;
+        //    }
+
+        //}
+        // GET: VideoGallery
+        public ActionResult Index()
+        {
+            return View();
+        }
     }
 }
