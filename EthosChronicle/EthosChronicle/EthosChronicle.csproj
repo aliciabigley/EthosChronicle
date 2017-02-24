@@ -352,6 +352,12 @@
     <Content Include="Content\dropzone.css" />
     <Content Include="Content\flaty.css" />
     <Content Include="Content\images\1955.jpg" />
+    <Content Include="Content\images\IMG_0005.jpg" />
+    <Content Include="Content\images\index3.jpg" />
+    <Content Include="Content\images\index4.jpg" />
+    <Content Include="Content\images\index5.jpg" />
+    <Content Include="Content\images\index6.jpg" />
+    <Content Include="Content\images\onCouch.jpg" />
     <Content Include="Content\images\airplane.jpg" />
     <Content Include="Content\images\family_little 2.jpg" />
     <Content Include="Content\images\family_little.jpg" />
@@ -367,6 +373,7 @@
     <Content Include="Content\images\pool.jpg" />
     <Content Include="Content\images\reading.jpg" />
     <Content Include="Content\images\sidebyside.jpg" />
+    <Content Include="Content\images\IMG_0025.jpg" />
     <Content Include="Content\spacelab.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -394,6 +401,7 @@
     <Content Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\images\Ethos-QuestionsforInterview.pdf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Content\basic.css" />
     <Content Include="Scripts\dropzone.js" />

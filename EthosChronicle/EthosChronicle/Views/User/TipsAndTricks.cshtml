@@ -3,16 +3,29 @@
     ViewBag.Title = "TipsAndTricks";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+    .pushdown {
+        margin-bottom: 50px;
+    }
 
+    #pushDownMore {
+        margin-top: 100px;
+    }
+
+    #pushDownMore2 {
+        margin-top: 80px;
+    }
+</style>
 <center><h1>Tips And Tricks</h1></center>
-<center><h3>Interview Tricks</h3></center>
+    <center><p style="position:relative;top:10px"><a class="btn btn-info btn-xs" href="/User/Questions">Questions! &raquo;</a></p></center>
 <br />
 <br />
-<div class="seperator">
-    <div class="col-xs-12 col-sm-6">
-        <center><img class="img-responsive pushdown" src="app.jpg"></center>
+<div class="col-xs-12">
+    <div class="col-xs-12 col-sm-6" id="pushDownMore2">
+        <img class="img-responsive pushdown" src="../../Content/images/onCouch.jpg">
     </div>
     <div class="col-xs-12 col-sm-6">
+        <center><h3>Interview Tricks</h3></center>
         <h3>1</h3>
         <h4>Conforable Enviroment</h4>
         <p>A familiar place and a confortable chair is an one way to ease the nerves of the person you are interviewing</p>
@@ -26,13 +39,14 @@
         <p>Remember you are having a conversation with someone. Just be you, so they can be them.</p>
         <br />
         <br />
+        <b />
     </div>
 </div>
-
 <br />
-<center><h3>Recording Tips</h3></center>
-<div class="row skillsseperator">
+<br />
+<div class="col-xs-12">
     <div class="col-xs-12 col-sm-6">
+        <center><h3>Recording Tips</h3></center>
         <h3>1</h3>
         <h4>Natural Lighting</h4>
         <p>Different lighting can make your video look and feel a specific way.  Given the name, natural lighting looks the most natural. That said, don't place your subject directly in the sun.</p>
@@ -45,5 +59,7 @@
         <h4>Backup gear</h4>
         <p>From time to time your equiptment could have a little hiccup. Plan a head. Bring extra batteries and come up with work arounds for audio or video issues. </p>
     </div>
- </div>
-
+    <div class="col-xs-12 col-sm-6" id="pushDownMore2">
+        <img class="img-responsive pushdown" src="../../Content/images/IMG_0005.jpg">
+    </div>
+</div>
