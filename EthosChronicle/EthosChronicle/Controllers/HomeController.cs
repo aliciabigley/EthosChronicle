@@ -33,6 +33,12 @@ namespace EthosChronicle.Controllers
 
             return View();
         }
+        public ActionResult Samples()
 
+        {
+            ViewBag.Message = "Videos we've done in the past";
+
+            return View();
         }
+    }
     }

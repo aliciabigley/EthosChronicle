@@ -14,7 +14,7 @@
         else
         {
             <li>@Html.ActionLink("Dashboard", "Index", "User")</li>
-           
+            <li>@Html.ActionLink("Interviews", "Index", "InterviewInformation")</li>
         }
         <li>
             @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
