@@ -15,12 +15,19 @@ namespace EthosChronicle.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Save Family Stories";
+            //ViewBag.Message = "Save Family Stories";
 
             return View();
         }
 
+        public ActionResult HowItWorks()
+        {
+            ViewBag.Message = "How It Works ";
+
+            return View();
+        }
         public ActionResult Contact()
+
         {
             ViewBag.Message = "Contact Us.";
 

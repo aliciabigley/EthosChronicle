@@ -3,14 +3,26 @@
     ViewBag.Title = "Questions";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+    .pushdown{
+        margin-bottom: 50px
+    }
+    #pushDownMore{
+        margin-top: 100px;
+    }
+        #pushDownMore2{
+        margin-top: 80px;
+    }
+</style>
+
 <center><h1>Interview Questions</h1></center>
-<center><h3>It's super important that both the interviewee and interviewer are on the same page in terms of questions being asked</h3></center>
-<p>Here are some questions we use while interviewing</p>
+<center><h3>Here are some questions we use while interviewing </h3></center>
+@*<center><h5>It's super important that both the interviewee and interviewer are on the same page in terms of questions being asked</h5></center>*@
 <br />
 <br />
-<div class="seperator">
-    <div class="col-xs-12 col-sm-6">
-        <center><img class="img-responsive pushdown" src="app.jpg"></center>
+<div class="col-xs-12">
+    <div class="col-xs-12 col-sm-6" id="pushdown">
+        <img class="img-responsive pushdown" src="../../Content/images/IMG_0023.jpg">
     </div>
     <div class="col-xs-12 col-sm-6">
         <h2>General Questions</h2>
@@ -19,13 +31,16 @@
         <p>How old does the make you?</p>
         <p>What are your parent’s names?</p>
         <p>Where did you grow up?</p>
+        <p>How old does the make you?</p>
+        <p>What are your parent’s names?</p>
+        <p>Where did you grow up?</p>
         <br>
         <h6>Pro tip: Start of easy questions and move on once the interviewee feels confortable</h6>
-        <br />
+        <b />
     </div>
 </div>
 <br />
-<div class="row skillsseperator">
+<div class="col-xs-12">
     <div class="col-xs-12 col-sm-6">
         <h2>Childhood  Questions</h2>
         <p>What did your parents do for a living?</p>
@@ -38,13 +53,15 @@
         <p>If so, what are there names?</p>
         <p>How was your relationship with them as children?</p>
         <p>How is your relationship with them now?</p>
-        <h6>Pro tip: Start of easy questions and move on once the interviewee feels confortable</h6>
         <br />
+    </div>
+    <div class="col-xs-12 col-sm-6">
+        <img class="img-responsive pushdown" src="../../Content/images/family_little 2.jpg">
     </div>
 </div>
 <div class="seperator">
     <div class="col-xs-12 col-sm-6">
-        <center><img class="img-responsive pushdown" src="app.jpg"></center>
+        <img class="img-responsive pushdown" id="pushDownMore" src="../../Content/images/IMG_0030.jpg">
     </div>
     <div class="col-xs-12 col-sm-6">
         <h2>Mid-Life Questions</h2>
@@ -62,17 +79,10 @@
         <p>How was it raising them? (Easy, hard, rewarding?)</p>
         <p>Tell me a story about your kids being younger?</p>
         <p>What made you proud of your kids?</p>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
-
-        <br>
-        <h6>Pro tip: Start of easy questions and move on once the interviewee feels confortable</h6>
         <br />
     </div>
 </div>
-<div class="row skillsseperator">
+<div class="col-xs-12">
     <div class="col-xs-12 col-sm-6">
         <h2>Reflection   Questions</h2>
         <p>Overall how is your life so far?</p>
@@ -85,7 +95,9 @@
         <p>What is the best advice you have ever received? And who gave it?</p>
         <p>Do you have any advice for your kids?</p>
         <p>Statistically, most people look back on life and realize they have worked too much, loved to little, and wasted time on meaningless things, what do you have to say about that?</p>
-        <h6>Pro tip: Start of easy questions and move on once the interviewee feels confortable</h6>
         <br />
+    </div>
+    <div class="col-xs-12 col-sm-6">
+        <img class="img-responsive pushdown" id="pushDownMore2" src="../../Content/images/kitchen.jpg">
     </div>
 </div>

@@ -38,3 +38,102 @@ outline: none;
 border-radius: 10px;
 }
 .paypal_btn:hover{ background: #e05c04; }
+
+#container{
+ width:990px; //or 100%
+}
+#left{
+ width:500px; 
+ float:left;
+}
+#splitter{
+ width:300px; 
+ float:left;
+}
+#right{
+ 600px;
+ float:right;
+}
+.skillsseperator{
+	padding-bottom: 20px;
+	border-bottom: 2px solid #3a929c;
+}
+.image{
+	position: relative;
+	width: 100%;
+}
+#img-responsive{
+    margin-top: 100px;
+}
+.image{
+	position: relative;
+	width: 100%;
+}
+
+#aliciabigley{
+	font-family: helvetica;
+	font-weight: lighter;
+	font-size: 5vw;
+	color: white;
+	position: absolute;
+	top: 20vw;
+	text-align: center;
+	width: 100%;
+}
+
+#photodesignsf{
+	font-family: helvetica;
+	font-weight: lighter;
+	font-size: 2vw;
+	color: white;
+	position: absolute;
+	top: 30vw;
+	left: o;
+	width: 100%;
+}
+
+.container{
+  margin-top: 70px;
+}
+
+.textpadding{
+	padding-top: 50px;
+}
+
+.skillsseperator{
+	padding-bottom: 20px;
+	border-bottom: 2px solid #3a929c;
+}
+
+.footer {
+	padding-top: 7px;
+	background-color: rgb(200,200,200);
+}
+
+.name{
+	padding-right: 15px;
+}
+
+.navicon{
+	width: 25px;
+	height: 25px;
+}
+
+a.navbar-brand > img {
+	max-height: 28px;
+}
+
+.form-group{
+	font-size: 15px;
+	margin-right: 50px;
+}
+
+
+footer{
+	padding-bottom: 10px;
+}
+
+.buttonmargin{
+	margin-bottom: 40px;
+}
+

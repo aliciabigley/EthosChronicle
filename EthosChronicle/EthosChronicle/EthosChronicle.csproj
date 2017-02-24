@@ -352,8 +352,21 @@
     <Content Include="Content\dropzone.css" />
     <Content Include="Content\flaty.css" />
     <Content Include="Content\images\1955.jpg" />
+    <Content Include="Content\images\airplane.jpg" />
+    <Content Include="Content\images\family_little 2.jpg" />
+    <Content Include="Content\images\family_little.jpg" />
+    <Content Include="Content\images\IMG_0015.jpg" />
+    <Content Include="Content\images\IMG_0023.jpg" />
+    <Content Include="Content\images\IMG_0030.jpg" />
+    <Content Include="Content\images\IMG_0044.jpg" />
+    <Content Include="Content\images\IMG_5229.jpg" />
+    <Content Include="Content\images\Index.jpg" />
+    <Content Include="Content\images\Index2.jpg" />
     <Content Include="Content\images\kitchen.jpg" />
+    <Content Include="Content\images\little_kids 2.jpg" />
+    <Content Include="Content\images\pool.jpg" />
     <Content Include="Content\images\reading.jpg" />
+    <Content Include="Content\images\sidebyside.jpg" />
     <Content Include="Content\spacelab.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -467,8 +480,8 @@
     <Content Include="Views\Customers\Delete.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Customers\Edit.cshtml" />
-    <Content Include="Views\Customers\Index.cshtml" />
-    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Customers\CustomerIndex.cshtml" />
+    <Content Include="Views\Admin\IndexAdmin.cshtml" />
     <Content Include="Views\User\TipsAndTricks.cshtml" />
     <Content Include="Views\User\Questions.cshtml" />
     <EntityDeploy Include="VideoGalleryTable.edmx">
@@ -478,6 +491,7 @@
     <Content Include="VideoGalleryTable.edmx.diagram">
       <DependentUpon>VideoGalleryTable.edmx</DependentUpon>
     </Content>
+    <Content Include="Views\Home\HowItWorks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

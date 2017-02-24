@@ -6,7 +6,7 @@
 }
 <style>
     body {
-        background-image: url("../../Content/images/reading.jpg");
+        background-image: url("../../Content/images/IMG_0044.jpg");
         background-repeat: no-repeat;
         /*height: 100%;*/
         /*width: 100%;*/
@@ -21,8 +21,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Customer</h4>
-        <hr />
+        @*<h4>Customer Info</h4>*@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -96,5 +95,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", "Home")
 </div>

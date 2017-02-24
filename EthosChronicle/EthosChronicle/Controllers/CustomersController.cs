@@ -16,7 +16,7 @@ namespace EthosChronicle.Controllers
 
 
         // GET: Customers
-        public ActionResult Index()
+        public ActionResult CustomerIndex()
         {
             return View(db.Customer.ToList());
         }
